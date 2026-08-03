@@ -2,10 +2,13 @@
 # 360° 全景查看器 —— Android 正式版 APK 自动构建工作流
 #
 # 触发条件：
-#   1) push 一个以 v 开头的 tag（如 v1.0.0）→ 自动出包
-#   2) 在仓库 Actions 页面手动运行（workflow_dispatch）
+#   1) push 一个以 v 开头的 tag（如 v1.0.0）→ 自动出包并创建 GitHub Release
+#   2) 在仓库 Actions 页面手动运行（workflow_dispatch）→ 仅出包上传产物
 #
 # 产物：已用你的签名密钥签名的正式版 APK（android/app/build/outputs/apk/release/app-release.apk）
+#
+# 说明：打 tag 会自动创建 GitHub Release 并附 APK（作为 Release asset），
+#       同时依然把 APK 上传到 Actions 产物页。手动运行时跳过建 Release，仅保留产物上传。
 #
 # -----------------------------------------------------------------------------
 # 需要先在仓库配置 4 个 Secrets
@@ -40,6 +43,11 @@ jobs:
   build:
     name: Build signed release APK
     runs-on: ubuntu-latest
+
+    # 创建 GitHub Release 需要写入仓库内容的权限；默认 GITHUB_TOKEN 仅有读权限，
+    # 这里显式授予 contents: write，确保 softprops/action-gh-release 能建 Release。
+    permissions:
+      contents: write
 
     steps:
       # a. 签出代码
@@ -97,3 +105,19 @@ jobs:
         with:
           name: app-release-apk
           path: android/app/build/outputs/apk/release/*.apk
+
+      # i. 打 tag 触发时自动创建 GitHub Release，并把 APK 作为 asset 挂上去
+      #    手动 workflow_dispatch 没有 tag ref，用 if 跳过建 Release，但保留 h 步产物上传。
+      - name: Create GitHub Release with APK
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          # tag 事件下默认会用 GITHUB_REF 的 tag 名作为 Release tag；显式指定更稳妥
+          tag_name: ${{ github.ref_name }}
+          name: 360 全景查看器 ${{ github.ref_name }}
+          body: |
+            360° 全景查看器正式版 ${{ github.ref_name }} 自动构建发布。
+            本 Release 附带已使用项目签名密钥签名的正式版 APK。
+          # 让 GitHub 自动汇总自上一个 Release 以来的变更作为 Release Notes
+          generate_release_notes: true
+          files: android/app/build/outputs/apk/release/*.apk
