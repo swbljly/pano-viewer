@@ -1,0 +1,17 @@
+# ===== Python / PyInstaller (Windows 查看器) =====
+__pycache__/
+*.pyc
+build/
+*.spec
+dist/
+
+# ===== 编辑器 / OS =====
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# ===== 本地密钥（本仓库不使用，双保险） =====
+*.jks
+*.keystore
+keystore.properties

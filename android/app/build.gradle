@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+}
+
+// 读取 keystore.properties（正式版签名用）。文件不存在时不影响 debug 构建；
+// 但只要执行 assembleRelease，就必须存在该文件并提供正确的密钥信息。
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('keystore.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace 'com.example.panoviewer'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.panoviewer"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // 正式版签名配置：仅在 keystore.properties 存在时生效
+    signingConfigs {
+        release {
+            if (keystorePropertiesFile.exists()) {
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // 正式发布版：用自有密钥签名 + 开启混淆压缩
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // 调试版：使用 Android 默认 debug 密钥，无需 keystore.properties
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // 仅依赖 AppCompat 提供 AppCompatActivity / 主题，保持最小依赖、离线可构建
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}

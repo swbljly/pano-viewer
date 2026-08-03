@@ -1,0 +1,30 @@
+# =============================================================================
+# Android 工程忽略规则（android/ 根目录）
+# 原则：忽略【密钥】与【构建产物】，但保留【Gradle Wrapper】随仓库提交。
+# =============================================================================
+
+# ===== 密钥 / 敏感信息（切勿提交到 Git） =====
+# keystore.properties 含密码；*.jks / *.keystore 是签名密钥库
+keystore.properties
+/keystore.properties
+*.jks
+*.keystore
+
+# ===== 本地环境配置 =====
+local.properties
+
+# ===== 构建产物 =====
+build/
+**/build/
+captures/
+
+# ===== Gradle 缓存 =====
+.gradle/
+
+# ===== Gradle Wrapper 处理 =====
+# 标准 wrapper jar 名为 gradle/wrapper/gradle-wrapper.jar（无版本号），不要忽略它；
+# 仅忽略意外出现在根目录、带版本号的 wrapper jar（如 gradle-wrapper-8.4.jar），
+# 避免误伤 gradle/wrapper/gradle-wrapper.jar。
+/gradle-wrapper-*.jar
+
+# 注意：gradlew、gradlew.bat、gradle/wrapper/ 均【不】在此忽略，需提交到仓库。

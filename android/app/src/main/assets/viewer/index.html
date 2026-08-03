@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>360° 全景查看器</title>
+  <link rel="stylesheet" href="viewer.css" />
+</head>
+<body>
+  <!-- 渲染容器：Three.js 的 canvas 会挂载到这里 -->
+  <div id="pano-container">
+    <!-- 拖拽 / 点击 打开图片的提示层 -->
+    <div id="drop-hint" class="overlay">
+      <div class="hint-card">
+        <div class="hint-icon">🌐</div>
+        <div class="hint-title">拖拽全景图到此处</div>
+        <div class="hint-sub">或点击「打开图片」选择 equirectangular JPG</div>
+      </div>
+    </div>
+
+    <!-- 状态提示（加载中 / 错误） -->
+    <div id="status-toast" class="status-toast" hidden></div>
+  </div>
+
+  <!-- 顶部工具栏 -->
+  <div id="toolbar" class="toolbar">
+    <button id="btn-open" class="tool-btn" title="打开本地全景图">📂 打开图片</button>
+    <button id="btn-autorotate" class="tool-btn" title="自动旋转开关">🔄 自动旋转</button>
+    <button id="btn-fullscreen" class="tool-btn" title="全屏切换">⛶ 全屏</button>
+    <button id="btn-reset" class="tool-btn" title="复位视角">↺ 复位</button>
+    <span id="fov-readout" class="fov-readout">FOV 75°</span>
+  </div>
+
+  <!-- 隐藏的文件选择器：被「打开图片」按钮或拖拽触发 -->
+  <input id="file-input" type="file" accept="image/*" hidden />
+
+  <!-- 本地内置 Three.js（离线，无 CDN 依赖） -->
+  <script src="three.min.js"></script>
+  <!-- 查看器核心逻辑 -->
+  <script src="viewer.js"></script>
+</body>
+</html>

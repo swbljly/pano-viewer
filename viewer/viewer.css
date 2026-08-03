@@ -1,0 +1,168 @@
+/* =========================================================================
+ * viewer.css — 360° 全景查看器样式
+ * 设计目标：全屏沉浸式观看，工具栏悬浮且不遮挡画面。
+ * ========================================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  color: #fff;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 渲染容器：占满整个视口，Three.js canvas 以绝对定位铺满 */
+#pano-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  cursor: grab;
+  touch-action: none; /* 让指针事件接管，避免移动端浏览器手势干扰 */
+}
+
+#pano-container:active {
+  cursor: grabbing;
+}
+
+#pano-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ------- 拖拽提示层 ------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* 不拦截拖拽事件 */
+  transition: opacity 0.35s ease;
+  z-index: 5;
+}
+
+.overlay.hidden {
+  opacity: 0;
+}
+
+.hint-card {
+  text-align: center;
+  padding: 28px 36px;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.hint-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hint-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.hint-sub {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* 拖拽悬停时高亮容器 */
+#pano-container.drag-over .hint-card {
+  border-color: #4da3ff;
+  background: rgba(30, 90, 160, 0.5);
+}
+
+/* ------- 状态提示 ------- */
+.status-toast {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.status-toast.error {
+  background: rgba(140, 30, 30, 0.85);
+}
+
+/* ------- 工具栏 ------- */
+.toolbar {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.tool-btn {
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.08s ease;
+}
+
+.tool-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.tool-btn:active {
+  transform: scale(0.96);
+}
+
+/* 激活态（自动旋转开启时） */
+.tool-btn.active {
+  background: #2f6fd0;
+}
+
+.fov-readout {
+  font-size: 12px;
+  opacity: 0.7;
+  padding: 0 6px;
+  min-width: 64px;
+  text-align: center;
+}
+
+/* 鼠标空闲后自动隐藏工具栏，观看更沉浸 */
+.toolbar.idle {
+  opacity: 0;
+}

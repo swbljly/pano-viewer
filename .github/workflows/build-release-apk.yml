@@ -1,0 +1,99 @@
+# =============================================================================
+# 360° 全景查看器 —— Android 正式版 APK 自动构建工作流
+#
+# 触发条件：
+#   1) push 一个以 v 开头的 tag（如 v1.0.0）→ 自动出包
+#   2) 在仓库 Actions 页面手动运行（workflow_dispatch）
+#
+# 产物：已用你的签名密钥签名的正式版 APK（android/app/build/outputs/apk/release/app-release.apk）
+#
+# -----------------------------------------------------------------------------
+# 需要先在仓库配置 4 个 Secrets
+# （仓库 → Settings → Secrets and variables → Actions → New repository secret）
+# -----------------------------------------------------------------------------
+# 1) KEYSTORE_BASE64
+#    你的签名密钥库 *.jks 的 base64 字符串（二进制安全，CI 会解码回 .jks）。
+#    本地生成方式：
+#      keytool -genkeypair -v -keystore my-release-key.jks \
+#              -keyalg RSA -keysize 2048 -validity 10000 \
+#              -alias panoviewer \
+#              -storepass 你的库密码 -keypass 你的密钥密码
+#      base64 -w0 my-release-key.jks        # 把整行输出作为 KEYSTORE_BASE64
+#
+# 2) KEYSTORE_PASSWORD   密钥库(storepass)密码，对应 keystore.properties 的 storePassword
+# 3) KEY_ALIAS           密钥别名，对应 keystore.properties 的 keyAlias（如 panoviewer）
+# 4) KEY_PASSWORD        密钥(keypass)密码，对应 keystore.properties 的 keyPassword
+#
+# 注意：仓库无需提交 my-release-key.jks / keystore.properties，密钥全走 Secrets，
+#       二者均已被 .gitignore 排除。
+# =============================================================================
+
+name: Build Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build signed release APK
+    runs-on: ubuntu-latest
+
+    steps:
+      # a. 签出代码
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      # b. 安装 JDK 17（匹配 app/build.gradle 的 JavaVersion.VERSION_17）
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # c. 安装 Android SDK 命令行工具并自动接受 license
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      # c-2. 安装 assembleRelease 实际依赖的 SDK platform 与 build-tools
+      #      （setup-android 仅提供 sdkmanager 并接受 license，不会自动装这些包）
+      - name: Install Android SDK packages
+        run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
+
+      # d. 解码 keystore：把 base64 字符串还原成二进制 .jks，放到 android/ 下
+      - name: Decode keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/my-release-key.jks
+
+      # e. 生成 keystore.properties（build.gradle 用 rootProject.file('keystore.properties') 读取）
+      #    四个字段与 build.gradle 的 signingConfigs.release 一一对应
+      - name: Generate keystore.properties
+        working-directory: android
+        run: |
+          echo "storeFile=my-release-key.jks" > keystore.properties
+          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" >> keystore.properties
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> keystore.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
+
+      # f. 缺失 Gradle Wrapper 时自愈：用 Gradle 8.4 自动生成 gradlew / gradle/wrapper/
+      #    这样用户不必先在本机用 Android Studio 打开一次再提交 wrapper
+      - name: Ensure Gradle Wrapper
+        if: ${{ !hashFiles('android/gradlew') }}
+        uses: gradle/gradle-build-action@v3
+        with:
+          gradle-version: 8.4
+          arguments: wrapper
+          build-root-directory: android
+
+      # g. 构建正式版 APK（wrapper 已由 f 步保证存在）
+      - name: Build release APK
+        working-directory: android
+        run: ./gradlew assembleRelease
+
+      # h. 上传产物
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: android/app/build/outputs/apk/release/*.apk
