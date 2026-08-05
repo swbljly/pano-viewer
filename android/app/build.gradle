@@ -29,6 +29,10 @@ android {
                 // 密钥库与 keystore.properties 同目录（android/），按 rootProject 解析，
                 // 落到 android/my-release-key.jks，与 CI 写入密钥库的路径一致。
                 storeFile rootProject.file(keystoreProperties['storeFile'])
+                // 密钥库由现代 JDK(9+) 的 keytool 生成，默认即 PKCS12 格式（即使扩展名是 .jks）。
+                // 必须显式声明为 PKCS12，否则 AGP 按 JKS 解析会报 "Tag number over 30 is not supported"。
+                // 若未来改用真正的 JKS 密钥库，请同步把此值改为 'JKS'。
+                storeType 'PKCS12'
                 storePassword keystoreProperties['storePassword']
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
