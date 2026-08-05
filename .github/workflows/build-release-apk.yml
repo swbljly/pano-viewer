@@ -1,36 +1,3 @@
-# =============================================================================
-# 360° 全景查看器 —— Android 正式版 APK 自动构建工作流
-#
-# 触发条件：
-#   1) push 一个以 v 开头的 tag（如 v1.0.0）→ 自动出包并创建 GitHub Release
-#   2) 在仓库 Actions 页面手动运行（workflow_dispatch）→ 仅出包上传产物
-#
-# 产物：已用你的签名密钥签名的正式版 APK（android/app/build/outputs/apk/release/app-release.apk）
-#
-# 说明：打 tag 会自动创建 GitHub Release 并附 APK（作为 Release asset），
-#       同时依然把 APK 上传到 Actions 产物页。手动运行时跳过建 Release，仅保留产物上传。
-#
-# -----------------------------------------------------------------------------
-# 需要先在仓库配置 4 个 Secrets
-# （仓库 → Settings → Secrets and variables → Actions → New repository secret）
-# -----------------------------------------------------------------------------
-# 1) KEYSTORE_BASE64
-#    你的签名密钥库 *.jks 的 base64 字符串（二进制安全，CI 会解码回 .jks）。
-#    本地生成方式：
-#      keytool -genkeypair -v -keystore my-release-key.jks \
-#              -keyalg RSA -keysize 2048 -validity 10000 \
-#              -alias panoviewer \
-#              -storepass 你的库密码 -keypass 你的密钥密码
-#      base64 -w0 my-release-key.jks        # 把整行输出作为 KEYSTORE_BASE64
-#
-# 2) KEYSTORE_PASSWORD   密钥库(storepass)密码，对应 keystore.properties 的 storePassword
-# 3) KEY_ALIAS           密钥别名，对应 keystore.properties 的 keyAlias（如 panoviewer）
-# 4) KEY_PASSWORD        密钥(keypass)密码，对应 keystore.properties 的 keyPassword
-#
-# 注意：仓库无需提交 my-release-key.jks / keystore.properties，密钥全走 Secrets，
-#       二者均已被 .gitignore 排除。
-# =============================================================================
-
 name: Build Release APK
 
 on:
@@ -39,43 +6,32 @@ on:
       - 'v*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build signed release APK
     runs-on: ubuntu-latest
-
-    # 创建 GitHub Release 需要写入仓库内容的权限；默认 GITHUB_TOKEN 仅有读权限，
-    # 这里显式授予 contents: write，确保 softprops/action-gh-release 能建 Release。
-    permissions:
-      contents: write
-
     steps:
-      # a. 签出代码
       - name: Checkout source
         uses: actions/checkout@v4
 
-      # b. 安装 JDK 17（匹配 app/build.gradle 的 JavaVersion.VERSION_17）
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      # c. 安装 Android SDK 命令行工具并自动接受 license
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      # c-2. 安装 assembleRelease 实际依赖的 SDK platform 与 build-tools
-      #      （setup-android 仅提供 sdkmanager 并接受 license，不会自动装这些包）
       - name: Install Android SDK packages
         run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
-      # d. 解码 keystore：把 base64 字符串还原成二进制 .jks，放到 android/ 下
       - name: Decode keystore
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/my-release-key.jks
 
-      # e. 生成 keystore.properties（build.gradle 用 rootProject.file('keystore.properties') 读取）
-      #    四个字段与 build.gradle 的 signingConfigs.release 一一对应
       - name: Generate keystore.properties
         working-directory: android
         run: |
@@ -84,8 +40,6 @@ jobs:
           echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> keystore.properties
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
 
-      # f. 缺失 Gradle Wrapper 时自愈：用 Gradle 8.4 自动生成 gradlew / gradle/wrapper/
-      #    这样用户不必先在本机用 Android Studio 打开一次再提交 wrapper
       - name: Ensure Gradle Wrapper
         if: ${{ !hashFiles('android/gradlew') }}
         uses: gradle/gradle-build-action@v3
@@ -94,30 +48,24 @@ jobs:
           arguments: wrapper
           build-root-directory: android
 
-      # g. 构建正式版 APK（wrapper 已由 f 步保证存在）
       - name: Build release APK
         working-directory: android
         run: ./gradlew assembleRelease
 
-      # h. 上传产物
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release-apk
           path: android/app/build/outputs/apk/release/*.apk
 
-      # i. 打 tag 触发时自动创建 GitHub Release，并把 APK 作为 asset 挂上去
-      #    手动 workflow_dispatch 没有 tag ref，用 if 跳过建 Release，但保留 h 步产物上传。
       - name: Create GitHub Release with APK
-        if: startsWith(github.ref, 'refs/tags/')
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
         uses: softprops/action-gh-release@v2
         with:
-          # tag 事件下默认会用 GITHUB_REF 的 tag 名作为 Release tag；显式指定更稳妥
           tag_name: ${{ github.ref_name }}
-          name: 360 全景查看器 ${{ github.ref_name }}
+          name: Panorama Viewer ${{ github.ref_name }}
           body: |
-            360° 全景查看器正式版 ${{ github.ref_name }} 自动构建发布。
-            本 Release 附带已使用项目签名密钥签名的正式版 APK。
-          # 让 GitHub 自动汇总自上一个 Release 以来的变更作为 Release Notes
+            Panorama Viewer ${{ github.ref_name }} automated release.
+            This release includes the officially signed APK.
           generate_release_notes: true
           files: android/app/build/outputs/apk/release/*.apk
