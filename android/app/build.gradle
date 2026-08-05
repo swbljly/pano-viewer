@@ -26,7 +26,9 @@ android {
     signingConfigs {
         release {
             if (keystorePropertiesFile.exists()) {
-                storeFile file(keystoreProperties['storeFile'])
+                // 密钥库与 keystore.properties 同目录（android/），按 rootProject 解析，
+                // 落到 android/my-release-key.jks，与 CI 写入密钥库的路径一致。
+                storeFile rootProject.file(keystoreProperties['storeFile'])
                 storePassword keystoreProperties['storePassword']
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
