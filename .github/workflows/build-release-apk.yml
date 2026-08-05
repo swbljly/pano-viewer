@@ -13,6 +13,7 @@ jobs:
   build:
     name: Build signed release APK
     runs-on: ubuntu-latest
+    environment: pano-viewer
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
