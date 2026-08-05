@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView webView;
     /** 网页内 <input type=file> 的文件选择回调（双指/单指均由系统回传）。 */
-    private ValueCallback<Uri> uploadMessage;
+    private ValueCallback<Uri[]> uploadMessage;
     /** 页面尚未加载完成时，暂存待注入的 JS（页面加载完再执行）。 */
     private String pendingImageJs;
     /** 页面是否已加载完成。 */
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onShowFileChooser(
                     WebView wv,
-                    ValueCallback<Uri> filePathCallback,
+                    ValueCallback<Uri[]> filePathCallback,
                     FileChooserParams fileChooserParams) {
                 uploadMessage = filePathCallback;
                 try {
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             Uri result = (data != null && resultCode == RESULT_OK) ? data.getData() : null;
-            uploadMessage.onReceiveValue(result);
+            uploadMessage.onReceiveValue(result != null ? new Uri[]{result} : null);
             uploadMessage = null;
             return;
         }
