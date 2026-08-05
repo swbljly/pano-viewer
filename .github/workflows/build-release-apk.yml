@@ -30,7 +30,20 @@ jobs:
         run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
       - name: Decode keystore
-        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/my-release-key.jks
+        run: |
+          # 去除 secret 中可能混入的空白（换行/空格），避免 base64 被截断或污染导致密钥库损坏
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | tr -d '[:space:]' | base64 -d > android/my-release-key.jks
+          echo "decoded keystore size: $(wc -c < android/my-release-key.jks) bytes"
+
+      - name: Verify keystore
+        run: |
+          echo "== file type =="
+          file android/my-release-key.jks || true
+          echo "== keytool list (validates store is readable) =="
+          keytool -list -keystore android/my-release-key.jks -storepass "${{ secrets.KEYSTORE_PASSWORD }}" || {
+            echo "ERROR: keystore unreadable — base64 secret likely truncated/corrupted or store password wrong"
+            exit 1
+          }
 
       - name: Generate keystore.properties
         working-directory: android
