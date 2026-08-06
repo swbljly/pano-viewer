@@ -1,0 +1,75 @@
+﻿2026-08-05T09:03:36.4839031Z ##[group]Run ./gradlew assembleRelease
+2026-08-05T09:03:36.4839701Z [36;1m./gradlew assembleRelease[0m
+2026-08-05T09:03:36.4883929Z shell: /usr/bin/bash -e {0}
+2026-08-05T09:03:36.4884208Z env:
+2026-08-05T09:03:36.4884534Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T09:03:36.4885075Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T09:03:36.4885502Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2026-08-05T09:03:36.4885812Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2026-08-05T09:03:36.4886127Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-08-05T09:03:36.4886448Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-08-05T09:03:36.4886891Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-08-05T09:03:36.4887401Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-08-05T09:03:36.4887746Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-08-05T09:03:36.4888028Z ##[endgroup]
+2026-08-05T09:03:36.5890964Z Downloading https://services.gradle.org/distributions/gradle-8.4-bin.zip
+2026-08-05T09:03:38.3927212Z ............10%............20%.............30%............40%.............50%............60%.............70%............80%.............90%............100%
+2026-08-05T09:03:40.8361587Z > Task :app:preBuild UP-TO-DATE
+2026-08-05T09:03:40.8366461Z > Task :app:preReleaseBuild UP-TO-DATE
+2026-08-05T09:03:40.9351146Z > Task :app:javaPreCompileRelease
+2026-08-05T09:03:45.5406773Z > Task :app:generateReleaseResValues
+2026-08-05T09:03:45.6322379Z > Task :app:checkReleaseAarMetadata
+2026-08-05T09:03:45.6333413Z > Task :app:mapReleaseSourceSetPaths
+2026-08-05T09:03:45.6334461Z > Task :app:generateReleaseResources
+2026-08-05T09:03:47.3338041Z > Task :app:packageReleaseResources
+2026-08-05T09:03:47.6322932Z > Task :app:mergeReleaseResources
+2026-08-05T09:03:48.9337100Z > Task :app:createReleaseCompatibleScreenManifests
+2026-08-05T09:03:48.9380183Z > Task :app:extractDeepLinksRelease
+2026-08-05T09:03:48.9381399Z > Task :app:parseReleaseLocalResources
+2026-08-05T09:03:49.1322854Z > Task :app:processReleaseMainManifest
+2026-08-05T09:03:49.4330656Z > Task :app:processReleaseManifest
+2026-08-05T09:03:49.5322093Z > Task :app:extractProguardFiles
+2026-08-05T09:03:49.5323078Z > Task :app:mergeReleaseJniLibFolders
+2026-08-05T09:03:49.9327642Z > Task :app:mergeReleaseNativeLibs NO-SOURCE
+2026-08-05T09:03:49.9332480Z > Task :app:stripReleaseDebugSymbols NO-SOURCE
+2026-08-05T09:03:49.9333497Z > Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+2026-08-05T09:03:49.9334455Z > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+2026-08-05T09:03:50.2342652Z > Task :app:checkReleaseDuplicateClasses
+2026-08-05T09:03:50.2343560Z > Task :app:mergeReleaseArtProfile
+2026-08-05T09:03:50.2344286Z > Task :app:processReleaseJavaRes NO-SOURCE
+2026-08-05T09:03:50.5335083Z > Task :app:mergeReleaseShaders
+2026-08-05T09:03:50.5356939Z > Task :app:compileReleaseShaders NO-SOURCE
+2026-08-05T09:03:50.5358911Z > Task :app:generateReleaseAssets UP-TO-DATE
+2026-08-05T09:03:50.6380459Z > Task :app:mergeReleaseAssets
+2026-08-05T09:03:50.6433864Z > Task :app:processApplicationManifestReleaseForBundle
+2026-08-05T09:03:50.6490176Z > Task :app:processReleaseManifestForPackage
+2026-08-05T09:03:50.6550209Z > Task :app:compressReleaseAssets
+2026-08-05T09:03:50.8365736Z > Task :app:collectReleaseDependencies
+2026-08-05T09:03:51.0322592Z > Task :app:sdkReleaseDependencyData
+2026-08-05T09:03:51.0323605Z > Task :app:mergeReleaseJavaResource
+2026-08-05T09:03:51.0324252Z > Task :app:validateSigningRelease
+2026-08-05T09:03:51.0324801Z > Task :app:writeReleaseAppMetadata
+2026-08-05T09:03:51.0325264Z > Task :app:writeReleaseSigningConfigVersions
+2026-08-05T09:03:51.2334083Z > Task :app:processReleaseResources
+2026-08-05T09:03:54.9352083Z Note: /home/runner/work/pano-viewer/pano-viewer/android/app/src/main/java/com/example/***/MainActivity.java uses or overrides a deprecated API.
+2026-08-05T09:03:54.9353268Z 
+2026-08-05T09:03:54.9354325Z Note: Recompile with -Xlint:deprecation for details.
+2026-08-05T09:03:54.9355466Z > Task :app:compileReleaseJavaWithJavac
+2026-08-05T09:03:57.7322160Z 
+2026-08-05T09:03:57.7323642Z > Task :app:generateReleaseLintVitalReportModel
+2026-08-05T09:04:02.3363490Z > Task :app:mergeReleaseGeneratedProguardFiles
+2026-08-05T09:04:02.5350886Z > Task :app:expandReleaseArtProfileWildcards
+2026-08-05T09:04:02.7350546Z > Task :app:bundleReleaseResources
+2026-08-05T09:04:08.5337784Z > Task :app:lintVitalAnalyzeRelease
+2026-08-05T09:04:08.5339156Z > Task :app:lintVitalReportRelease
+2026-08-05T09:04:08.5340486Z > Task :app:lintVitalRelease
+2026-08-05T09:04:28.2325883Z > Task :app:minifyReleaseWithR8
+2026-08-05T09:04:28.2328227Z > Task :app:compileReleaseArtProfile
+2026-08-05T09:04:28.8321506Z > Task :app:shrinkReleaseRes
+2026-08-05T09:04:28.9321824Z > Task :app:optimizeReleaseResources
+2026-08-05T09:04:29.3042828Z > Task :app:packageRelease
+2026-08-05T09:04:29.3044007Z > Task :app:createReleaseApkListingFileRedirect
+2026-08-05T09:04:29.3045045Z > Task :app:assembleRelease
+2026-08-05T09:04:29.3045596Z 
+2026-08-05T09:04:29.3046074Z BUILD SUCCESSFUL in 52s
+2026-08-05T09:04:29.3046802Z 41 actionable tasks: 41 executed

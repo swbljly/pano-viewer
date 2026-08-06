@@ -1,0 +1,87 @@
+﻿2026-08-05T05:34:33.0092564Z ##[group]Run ./gradlew assembleRelease
+2026-08-05T05:34:33.0093133Z [36;1m./gradlew assembleRelease[0m
+2026-08-05T05:34:33.0141352Z shell: /usr/bin/bash -e {0}
+2026-08-05T05:34:33.0141621Z env:
+2026-08-05T05:34:33.0141939Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T05:34:33.0142447Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T05:34:33.0142971Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2026-08-05T05:34:33.0143281Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2026-08-05T05:34:33.0143585Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-08-05T05:34:33.0144062Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-08-05T05:34:33.0144494Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-08-05T05:34:33.0144985Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-08-05T05:34:33.0145318Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-08-05T05:34:33.0145588Z ##[endgroup]
+2026-08-05T05:34:33.1137295Z Downloading https://services.gradle.org/distributions/gradle-8.4-bin.zip
+2026-08-05T05:34:34.5728957Z ............10%............20%.............30%............40%.............50%............60%.............70%............80%.............90%............100%
+2026-08-05T05:34:36.8942033Z > Task :app:preBuild UP-TO-DATE
+2026-08-05T05:34:36.8943339Z > Task :app:preReleaseBuild UP-TO-DATE
+2026-08-05T05:34:36.9920594Z > Task :app:javaPreCompileRelease
+2026-08-05T05:34:39.0963884Z > Task :app:generateReleaseResValues
+2026-08-05T05:34:39.1916108Z > Task :app:checkReleaseAarMetadata
+2026-08-05T05:34:39.1943850Z > Task :app:mapReleaseSourceSetPaths
+2026-08-05T05:34:39.1944513Z > Task :app:generateReleaseResources
+2026-08-05T05:34:40.4924307Z > Task :app:packageReleaseResources
+2026-08-05T05:34:40.9924431Z > Task :app:mergeReleaseResources
+2026-08-05T05:34:41.4917508Z > Task :app:createReleaseCompatibleScreenManifests
+2026-08-05T05:34:41.4924972Z > Task :app:extractDeepLinksRelease
+2026-08-05T05:34:41.5927421Z > Task :app:parseReleaseLocalResources
+2026-08-05T05:34:41.6934263Z > Task :app:processReleaseMainManifest
+2026-08-05T05:34:41.9917639Z > Task :app:processReleaseManifest
+2026-08-05T05:34:42.0927610Z > Task :app:extractProguardFiles
+2026-08-05T05:34:42.0953636Z > Task :app:mergeReleaseJniLibFolders
+2026-08-05T05:34:42.3938782Z > Task :app:mergeReleaseNativeLibs NO-SOURCE
+2026-08-05T05:34:42.3963895Z > Task :app:stripReleaseDebugSymbols NO-SOURCE
+2026-08-05T05:34:42.3996750Z > Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+2026-08-05T05:34:42.4011248Z > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+2026-08-05T05:34:42.6927590Z > Task :app:checkReleaseDuplicateClasses
+2026-08-05T05:34:42.6946731Z > Task :app:processReleaseJavaRes NO-SOURCE
+2026-08-05T05:34:42.7919305Z > Task :app:mergeReleaseArtProfile
+2026-08-05T05:34:42.9920036Z > Task :app:mergeReleaseShaders
+2026-08-05T05:34:42.9921195Z > Task :app:compileReleaseShaders NO-SOURCE
+2026-08-05T05:34:42.9926364Z > Task :app:generateReleaseAssets UP-TO-DATE
+2026-08-05T05:34:43.0943798Z > Task :app:mergeReleaseAssets
+2026-08-05T05:34:43.0944993Z > Task :app:processReleaseManifestForPackage
+2026-08-05T05:34:43.3944250Z > Task :app:processApplicationManifestReleaseForBundle
+2026-08-05T05:34:43.3973672Z > Task :app:compressReleaseAssets
+2026-08-05T05:34:43.4924243Z > Task :app:collectReleaseDependencies
+2026-08-05T05:34:43.4942178Z > Task :app:mergeReleaseJavaResource
+2026-08-05T05:34:43.5916407Z > Task :app:sdkReleaseDependencyData
+2026-08-05T05:34:43.5917537Z > Task :app:validateSigningRelease
+2026-08-05T05:34:43.5918364Z > Task :app:writeReleaseAppMetadata
+2026-08-05T05:34:43.5919267Z > Task :app:writeReleaseSigningConfigVersions
+2026-08-05T05:34:43.7915242Z > Task :app:processReleaseResources
+2026-08-05T05:34:47.4953354Z 
+2026-08-05T05:34:47.4984772Z Note: /home/runner/work/pano-viewer/pano-viewer/android/app/src/main/java/com/example/panoviewer/MainActivity.java uses or overrides a deprecated API.
+2026-08-05T05:34:47.5013778Z Note: Recompile with -Xlint:deprecation for details.
+2026-08-05T05:34:47.5015039Z > Task :app:compileReleaseJavaWithJavac
+2026-08-05T05:34:50.0914092Z 
+2026-08-05T05:34:50.0915027Z > Task :app:generateReleaseLintVitalReportModel
+2026-08-05T05:34:54.6924649Z > Task :app:mergeReleaseGeneratedProguardFiles
+2026-08-05T05:34:54.8954287Z > Task :app:expandReleaseArtProfileWildcards
+2026-08-05T05:34:54.9915175Z > Task :app:bundleReleaseResources
+2026-08-05T05:35:00.9944128Z > Task :app:lintVitalAnalyzeRelease
+2026-08-05T05:35:01.0923974Z > Task :app:lintVitalReportRelease
+2026-08-05T05:35:01.0953961Z > Task :app:lintVitalRelease
+2026-08-05T05:35:19.3956014Z > Task :app:minifyReleaseWithR8
+2026-08-05T05:35:19.4915236Z > Task :app:compileReleaseArtProfile
+2026-08-05T05:35:19.9914620Z > Task :app:shrinkReleaseRes
+2026-08-05T05:35:20.0924774Z > Task :app:optimizeReleaseResources
+2026-08-05T05:35:20.0933096Z > Task :app:packageRelease FAILED
+2026-08-05T05:35:20.1912926Z 
+2026-08-05T05:35:20.1938893Z FAILURE: Build failed with an exception.
+2026-08-05T05:35:20.1939629Z 40 actionable tasks: 40 executed
+2026-08-05T05:35:20.1940400Z 
+2026-08-05T05:35:20.1940819Z * What went wrong:
+2026-08-05T05:35:20.1941509Z Execution failed for task ':app:packageRelease'.
+2026-08-05T05:35:20.1943111Z > A failure occurred while executing com.android.build.gradle.tasks.PackageAndroidArtifact$IncrementalSplitterRunnable
+2026-08-05T05:35:20.1945490Z    > com.android.ide.common.signing.KeytoolException: Failed to read key  from store "/home/runner/work/pano-viewer/pano-viewer/android/my-release-key.jks": Tag number over 30 is not supported
+2026-08-05T05:35:20.1946838Z 
+2026-08-05T05:35:20.1947171Z * Try:
+2026-08-05T05:35:20.1951806Z > Run with --stacktrace option to get the stack trace.
+2026-08-05T05:35:20.1953109Z > Run with --info or --debug option to get more log output.
+2026-08-05T05:35:20.1953971Z > Run with --scan to get full insights.
+2026-08-05T05:35:20.1954748Z > Get more help at https://help.gradle.org.
+2026-08-05T05:35:20.1955281Z 
+2026-08-05T05:35:20.1955680Z BUILD FAILED in 47s
+2026-08-05T05:35:20.2887820Z ##[error]Process completed with exit code 1.

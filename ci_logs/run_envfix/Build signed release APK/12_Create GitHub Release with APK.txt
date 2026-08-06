@@ -1,0 +1,32 @@
+﻿2026-08-05T09:04:30.5922079Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-08-05T09:04:30.5923422Z ##[group]Run softprops/action-gh-release@v2
+2026-08-05T09:04:30.5923723Z with:
+2026-08-05T09:04:30.5923929Z   tag_name: v1.0.0
+2026-08-05T09:04:30.5924161Z   name: Panorama Viewer v1.0.0
+2026-08-05T09:04:30.5924616Z   body: Panorama Viewer v1.0.0 automated release.
+This release includes the officially signed APK.
+
+2026-08-05T09:04:30.5925116Z   generate_release_notes: true
+2026-08-05T09:04:30.5925415Z   files: android/app/build/outputs/apk/release/*.apk
+2026-08-05T09:04:30.5925736Z   overwrite_files: true
+2026-08-05T09:04:30.5928332Z   token: ***
+2026-08-05T09:04:30.5928533Z env:
+2026-08-05T09:04:30.5928842Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T09:04:30.5929680Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T09:04:30.5930099Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2026-08-05T09:04:30.5930412Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2026-08-05T09:04:30.5930730Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-08-05T09:04:30.5931038Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-08-05T09:04:30.5931500Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-08-05T09:04:30.5932008Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-08-05T09:04:30.5932359Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-08-05T09:04:30.5932635Z ##[endgroup]
+2026-08-05T09:04:31.0496083Z 👩‍🏭 Creating new GitHub release for tag v1.0.0...
+2026-08-05T09:04:32.2965859Z Release 365399727 is not yet discoverable by tag v1.0.0, retrying... (2 retries remaining)
+2026-08-05T09:04:33.7150787Z Release 365399727 is not yet discoverable by tag v1.0.0, retrying... (1 retries remaining)
+2026-08-05T09:04:35.1583635Z ⚠️ Continuing with newly created release 365399727 because tag v1.0.0 is still not discoverable
+2026-08-05T09:04:35.1598118Z ⬆️ Uploading app-release.apk...
+2026-08-05T09:04:36.0143232Z ✅ Uploaded app-release.apk
+2026-08-05T09:04:36.0143920Z Finalizing release...
+2026-08-05T09:04:36.4018095Z Getting assets list...
+2026-08-05T09:04:36.5778029Z 🎉 Release ready at https://github.com/swbljly/pano-viewer/releases/tag/v1.0.0

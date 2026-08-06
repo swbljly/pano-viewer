@@ -1,0 +1,93 @@
+﻿2026-08-05T05:19:11.6357482Z ##[group]Run gradle/gradle-build-action@v3
+2026-08-05T05:19:11.6357763Z with:
+2026-08-05T05:19:11.6357923Z   gradle-version: 8.4
+2026-08-05T05:19:11.6358101Z   arguments: wrapper
+2026-08-05T05:19:11.6358280Z   build-root-directory: android
+2026-08-05T05:19:11.6358480Z   cache-disabled: false
+2026-08-05T05:19:11.6358659Z   cache-read-only: true
+2026-08-05T05:19:11.6358830Z   cache-write-only: false
+2026-08-05T05:19:11.6359023Z   cache-overwrite-existing: false
+2026-08-05T05:19:11.6359265Z   gradle-home-cache-includes: caches
+notifications
+
+2026-08-05T05:19:11.6359535Z   gradle-home-cache-cleanup: false
+2026-08-05T05:19:11.6359744Z   add-job-summary: always
+2026-08-05T05:19:11.6359940Z   add-job-summary-as-pr-comment: never
+2026-08-05T05:19:11.6360166Z   dependency-graph: disabled
+2026-08-05T05:19:11.6360384Z   dependency-graph-continue-on-failure: true
+2026-08-05T05:19:11.6360621Z   build-scan-publish: false
+2026-08-05T05:19:11.6360816Z   validate-wrappers: false
+2026-08-05T05:19:11.6361000Z   generate-job-summary: true
+2026-08-05T05:19:11.6361253Z   gradle-home-cache-strict-match: false
+2026-08-05T05:19:11.6361469Z   workflow-job-context: null
+2026-08-05T05:19:11.6363828Z   github-token: ***
+2026-08-05T05:19:11.6364015Z env:
+2026-08-05T05:19:11.6364262Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T05:19:11.6364649Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T05:19:11.6364982Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2026-08-05T05:19:11.6365216Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2026-08-05T05:19:11.6365435Z ##[endgroup]
+2026-08-05T05:19:11.6409270Z ##[start-action display=Setup Gradle;id=__gradle_gradle-build-action.setup-gradle]
+2026-08-05T05:19:11.6466166Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-08-05T05:19:11.6467123Z ##[group]Run gradle/actions/setup-gradle@v3.5.0
+2026-08-05T05:19:11.6467357Z with:
+2026-08-05T05:19:11.6467517Z   gradle-version: 8.4
+2026-08-05T05:19:11.6467698Z   cache-disabled: false
+2026-08-05T05:19:11.6467882Z   cache-read-only: true
+2026-08-05T05:19:11.6468053Z   cache-write-only: false
+2026-08-05T05:19:11.6468248Z   cache-overwrite-existing: false
+2026-08-05T05:19:11.6468491Z   gradle-home-cache-includes: caches
+notifications
+
+2026-08-05T05:19:11.6468749Z   gradle-home-cache-cleanup: false
+2026-08-05T05:19:11.6468957Z   add-job-summary: always
+2026-08-05T05:19:11.6469151Z   add-job-summary-as-pr-comment: never
+2026-08-05T05:19:11.6469371Z   dependency-graph: disabled
+2026-08-05T05:19:11.6469589Z   dependency-graph-continue-on-failure: true
+2026-08-05T05:19:11.6469825Z   build-scan-publish: false
+2026-08-05T05:19:11.6470018Z   validate-wrappers: false
+2026-08-05T05:19:11.6470207Z   generate-job-summary: true
+2026-08-05T05:19:11.6470559Z   arguments: wrapper
+2026-08-05T05:19:11.6470741Z   build-root-directory: android
+2026-08-05T05:19:11.6470957Z   gradle-home-cache-strict-match: false
+2026-08-05T05:19:11.6471175Z   workflow-job-context: null
+2026-08-05T05:19:11.6473530Z   github-token: ***
+2026-08-05T05:19:11.6473715Z env:
+2026-08-05T05:19:11.6473961Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T05:19:11.6474346Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T05:19:11.6474656Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2026-08-05T05:19:11.6474890Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2026-08-05T05:19:11.6475135Z   GRADLE_ACTION_ID: gradle/gradle-build-action
+2026-08-05T05:19:11.6475350Z ##[endgroup]
+2026-08-05T05:19:11.7971529Z (node:2395) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-08-05T05:19:11.7972226Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-05T05:19:11.8723545Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
+2026-08-05T05:19:11.8725304Z ##[group]Restore Gradle state from cache
+2026-08-05T05:19:11.9539731Z ##[warning]Failed to restore gradle-home-v1|Linux|build[c4346d2f90cb10f39259e32865a43598]-36fd244de53017c352ba440add6c66dc9512b177: Error: Cache service responded with 400
+2026-08-05T05:19:11.9599681Z Gradle User Home cache not found. Will initialize empty.
+2026-08-05T05:19:11.9600362Z ##[endgroup]
+2026-08-05T05:19:11.9916719Z ##[group]Provision Gradle 8.4
+2026-08-05T05:19:12.0555606Z ##[warning]Restore Gradle distribution 8.4 failed: Error: Cache service responded with 400
+2026-08-05T05:19:12.0556444Z Gradle distribution 8.4 not found in cache. Will download.
+2026-08-05T05:19:12.7055224Z Downloaded https://services.gradle.org/distributions/gradle-8.4-bin.zip to /home/runner/gradle-installations/downloads/gradle-8.4-bin.zip (size 130979468)
+2026-08-05T05:19:12.7067429Z [command]/usr/bin/unzip -o -q /home/runner/gradle-installations/downloads/gradle-8.4-bin.zip
+2026-08-05T05:19:13.5447714Z Extracted Gradle 8.4 to /home/runner/gradle-installations/installs/gradle-8.4
+2026-08-05T05:19:13.5448959Z Provisioned Gradle executable /home/runner/gradle-installations/installs/gradle-8.4/bin/gradle
+2026-08-05T05:19:13.5449828Z ##[endgroup]
+2026-08-05T05:19:13.5453487Z [command]/home/runner/gradle-installations/installs/gradle-8.4/bin/gradle wrapper
+2026-08-05T05:19:13.9754922Z 
+2026-08-05T05:19:13.9755523Z Welcome to Gradle 8.4!
+2026-08-05T05:19:13.9755766Z 
+2026-08-05T05:19:13.9756261Z Here are the highlights of this release:
+2026-08-05T05:19:13.9775584Z  - Compiling and testing with Java 21
+2026-08-05T05:19:13.9782762Z  - Faster Java compilation on Windows
+2026-08-05T05:19:13.9783620Z  - Role focused dependency configurations creation
+2026-08-05T05:19:13.9784014Z 
+2026-08-05T05:19:13.9784509Z For more details see https://docs.gradle.org/8.4/release-notes.html
+2026-08-05T05:19:13.9784770Z 
+2026-08-05T05:19:14.0745655Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-08-05T05:19:34.6760630Z > Task :wrapper
+2026-08-05T05:19:34.6762173Z 
+2026-08-05T05:19:34.6763858Z BUILD SUCCESSFUL in 21s
+2026-08-05T05:19:34.6769522Z 1 actionable task: 1 executed
+2026-08-05T05:19:35.0096615Z ##[end-action id=__gradle_gradle-build-action.setup-gradle;outcome=success;conclusion=success;duration_ms=23368]

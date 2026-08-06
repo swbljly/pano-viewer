@@ -1,0 +1,67 @@
+﻿2026-08-05T05:30:26.9707389Z ##[group]Run ./gradlew assembleRelease
+2026-08-05T05:30:26.9707749Z [36;1m./gradlew assembleRelease[0m
+2026-08-05T05:30:26.9751808Z shell: /usr/bin/bash -e {0}
+2026-08-05T05:30:26.9752076Z env:
+2026-08-05T05:30:26.9752393Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T05:30:26.9752937Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T05:30:26.9753362Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2026-08-05T05:30:26.9753675Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2026-08-05T05:30:26.9753988Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-08-05T05:30:26.9754484Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-08-05T05:30:26.9754939Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-08-05T05:30:26.9755469Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-08-05T05:30:26.9755821Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-08-05T05:30:26.9756100Z ##[endgroup]
+2026-08-05T05:30:27.0721719Z Downloading https://services.gradle.org/distributions/gradle-8.4-bin.zip
+2026-08-05T05:30:28.5618622Z ............10%............20%.............30%............40%.............50%............60%.............70%............80%.............90%............100%
+2026-08-05T05:30:31.0281844Z > Task :app:preBuild UP-TO-DATE
+2026-08-05T05:30:31.0301520Z > Task :app:preReleaseBuild UP-TO-DATE
+2026-08-05T05:30:31.0311359Z > Task :app:javaPreCompileRelease
+2026-08-05T05:30:33.4280838Z > Task :app:generateReleaseResValues
+2026-08-05T05:30:33.5270871Z > Task :app:checkReleaseAarMetadata
+2026-08-05T05:30:33.5291114Z > Task :app:mapReleaseSourceSetPaths
+2026-08-05T05:30:33.5311012Z > Task :app:generateReleaseResources
+2026-08-05T05:30:35.0267858Z > Task :app:packageReleaseResources
+2026-08-05T05:30:35.5253380Z > Task :app:mergeReleaseResources
+2026-08-05T05:30:36.0303524Z > Task :app:createReleaseCompatibleScreenManifests
+2026-08-05T05:30:36.0331320Z > Task :app:extractDeepLinksRelease
+2026-08-05T05:30:36.1266169Z > Task :app:parseReleaseLocalResources
+2026-08-05T05:30:36.4253856Z > Task :app:processReleaseMainManifest
+2026-08-05T05:30:36.7260977Z > Task :app:processReleaseManifest
+2026-08-05T05:30:36.7280791Z > Task :app:extractProguardFiles
+2026-08-05T05:30:36.7281912Z > Task :app:mergeReleaseJniLibFolders
+2026-08-05T05:30:37.0255224Z > Task :app:mergeReleaseNativeLibs NO-SOURCE
+2026-08-05T05:30:37.0268178Z > Task :app:stripReleaseDebugSymbols NO-SOURCE
+2026-08-05T05:30:37.0269332Z > Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+2026-08-05T05:30:37.0270622Z > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+2026-08-05T05:30:37.0271629Z > Task :app:processReleaseManifestForPackage
+2026-08-05T05:30:37.6279345Z > Task :app:checkReleaseDuplicateClasses
+2026-08-05T05:30:37.6310648Z > Task :app:processReleaseJavaRes NO-SOURCE
+2026-08-05T05:30:37.6321252Z > Task :app:mergeReleaseArtProfile
+2026-08-05T05:30:37.6340508Z > Task :app:processReleaseResources
+2026-08-05T05:30:38.4253860Z > Task :app:mergeReleaseJavaResource
+2026-08-05T05:30:41.8297882Z /home/runner/work/pano-viewer/pano-viewer/android/app/src/main/java/com/example/panoviewer/MainActivity.java:90: error: name clash: onShowFileChooser(WebView,ValueCallback<Uri>,FileChooserParams) in <anonymous com.example.panoviewer.MainActivity$2> and onShowFileChooser(WebView,ValueCallback<Uri[]>,FileChooserParams) in WebChromeClient have the same erasure, yet neither overrides the other
+2026-08-05T05:30:41.8301430Z 
+2026-08-05T05:30:41.8301844Z             public boolean onShowFileChooser(
+2026-08-05T05:30:41.8303042Z                            ^
+2026-08-05T05:30:41.8305180Z /home/runner/work/pano-viewer/pano-viewer/android/app/src/main/java/com/example/panoviewer/MainActivity.java:89: error: method does not override or implement a method from a supertype
+2026-08-05T05:30:41.8323871Z             @Override
+2026-08-05T05:30:41.8335795Z > Task :app:compileReleaseJavaWithJavac FAILED
+2026-08-05T05:30:41.8336594Z             ^
+2026-08-05T05:30:41.8338286Z Note: /home/runner/work/pano-viewer/pano-viewer/android/app/src/main/java/com/example/panoviewer/MainActivity.java uses or overrides a deprecated API.
+2026-08-05T05:30:41.8340625Z Note: Recompile with -Xlint:deprecation for details.
+2026-08-05T05:30:41.8341407Z 2 errors
+2026-08-05T05:30:41.9272339Z 
+2026-08-05T05:30:41.9291086Z FAILURE: Build failed with an exception.
+2026-08-05T05:30:41.9291834Z 19 actionable tasks: 19 executed
+2026-08-05T05:30:41.9313245Z 
+2026-08-05T05:30:41.9318581Z * What went wrong:
+2026-08-05T05:30:41.9350869Z Execution failed for task ':app:compileReleaseJavaWithJavac'.
+2026-08-05T05:30:41.9380601Z > Compilation failed; see the compiler error output for details.
+2026-08-05T05:30:41.9381345Z 
+2026-08-05T05:30:41.9392782Z * Try:
+2026-08-05T05:30:41.9393533Z > Run with --info option to get more log output.
+2026-08-05T05:30:41.9394364Z > Run with --scan to get full insights.
+2026-08-05T05:30:41.9394871Z 
+2026-08-05T05:30:41.9395238Z BUILD FAILED in 14s
+2026-08-05T05:30:41.9545417Z ##[error]Process completed with exit code 1.

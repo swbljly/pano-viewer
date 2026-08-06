@@ -1,0 +1,34 @@
+﻿2026-08-05T09:04:29.3243149Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-08-05T09:04:29.3245505Z ##[group]Run actions/upload-artifact@v4
+2026-08-05T09:04:29.3246009Z with:
+2026-08-05T09:04:29.3246352Z   name: app-release-apk
+2026-08-05T09:04:29.3246838Z   path: android/app/build/outputs/apk/release/*.apk
+2026-08-05T09:04:29.3247400Z   if-no-files-found: warn
+2026-08-05T09:04:29.3247821Z   compression-level: 6
+2026-08-05T09:04:29.3248232Z   overwrite: false
+2026-08-05T09:04:29.3248623Z   include-hidden-files: false
+2026-08-05T09:04:29.3249044Z env:
+2026-08-05T09:04:29.3249848Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T09:04:29.3250753Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+2026-08-05T09:04:29.3251535Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2026-08-05T09:04:29.3252084Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2026-08-05T09:04:29.3252642Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-08-05T09:04:29.3253173Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-08-05T09:04:29.3253990Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-08-05T09:04:29.3255149Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-08-05T09:04:29.3255766Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-08-05T09:04:29.3256255Z ##[endgroup]
+2026-08-05T09:04:29.5018801Z (node:3141) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-08-05T09:04:29.5019970Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-05T09:04:29.5070763Z With the provided path, there will be 1 file uploaded
+2026-08-05T09:04:29.5076858Z Artifact name is valid!
+2026-08-05T09:04:29.5077635Z Root directory input is valid!
+2026-08-05T09:04:29.7738920Z Beginning upload of artifact content to blob storage
+2026-08-05T09:04:29.8225737Z (node:3141) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-08-05T09:04:30.3101837Z Uploaded bytes 714877
+2026-08-05T09:04:30.3750891Z Finished uploading artifact content to blob storage!
+2026-08-05T09:04:30.3751985Z SHA256 digest of uploaded artifact zip is 32752b8e93f4f480dad601ca3077cecce356074f34750c0c7a18f4f68af5ef67
+2026-08-05T09:04:30.3753940Z Finalizing artifact upload
+2026-08-05T09:04:30.5763335Z Artifact app-release-apk.zip successfully finalized. Artifact ID 8924369561
+2026-08-05T09:04:30.5764385Z Artifact app-release-apk has been successfully uploaded! Final size is 714877 bytes. Artifact ID is 8924369561
+2026-08-05T09:04:30.5771461Z Artifact download URL: https://github.com/swbljly/pano-viewer/actions/runs/30991544366/artifacts/8924369561

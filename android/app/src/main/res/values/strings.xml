@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">360° 全景查看器</string>
+
+    <!-- 工具栏 / 入口 -->
+    <string name="btn_link">🔗 链接</string>
+    <string name="btn_favorites">⭐ 收藏</string>
+
+    <!-- 链接输入面板 -->
+    <string name="dialog_link_title">链接查看</string>
+    <string name="hint_link_url">请输入图片直链 / 网页链接 / 夸克分享链接</string>
+    <string name="hint_passcode">提取码（可选）</string>
+    <string name="btn_parse">解析</string>
+    <string name="title_results">解析结果（请选择要查看的图片）</string>
+    <string name="btn_view">查看</string>
+    <string name="btn_fav_add">☆ 收藏</string>
+    <string name="fav_added">已收藏</string>
+
+    <!-- 收藏页 -->
+    <string name="favorites_title">我的收藏</string>
+    <string name="btn_open">打开</string>
+    <string name="btn_delete">删除</string>
+    <string name="empty_favorites">暂无收藏</string>
+
+    <!-- 通用 UI -->
+    <string name="toast_loading">加载中…</string>
+    <string name="passcode_title">夸克提取码</string>
+    <string name="passcode_hint">请输入提取码</string>
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+
+    <!-- 错误提示 -->
+    <string name="e_empty_input">请输入链接</string>
+    <string name="e_invalid_url">链接格式不正确</string>
+    <string name="e_network">网络请求失败，请检查网络</string>
+    <string name="e_resolve_quark">夸克解析失败（接口可能已变更），请改用图片直链</string>
+    <string name="e_no_image">未在页面中找到图片，请改用直链</string>
+    <string name="e_download">图片下载失败</string>
 </resources>

@@ -1,0 +1,153 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 92227129424,
+      "run_id": 30981641122,
+      "workflow_name": "Build Release APK",
+      "head_branch": "v1.0.0",
+      "run_url": "https://api.github.com/repos/swbljly/pano-viewer/actions/runs/30981641122",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOTuMG988AAAAVeSpQUA",
+      "head_sha": "9e5e020d0dcd8b3c1ae10038491420d4a2f52216",
+      "url": "https://api.github.com/repos/swbljly/pano-viewer/actions/jobs/92227129424",
+      "html_url": "https://github.com/swbljly/pano-viewer/actions/runs/30981641122/job/92227129424",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-08-05T06:31:12Z",
+      "started_at": "2026-08-05T06:31:15Z",
+      "completed_at": "2026-08-05T06:31:49Z",
+      "name": "Build signed release APK",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-08-05T06:31:16Z",
+          "completed_at": "2026-08-05T06:31:20Z"
+        },
+        {
+          "name": "Checkout source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-08-05T06:31:20Z",
+          "completed_at": "2026-08-05T06:31:21Z"
+        },
+        {
+          "name": "Set up JDK 17",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-08-05T06:31:21Z",
+          "completed_at": "2026-08-05T06:31:21Z"
+        },
+        {
+          "name": "Set up Android SDK",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-08-05T06:31:21Z",
+          "completed_at": "2026-08-05T06:31:43Z"
+        },
+        {
+          "name": "Install Android SDK packages",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-08-05T06:31:43Z",
+          "completed_at": "2026-08-05T06:31:45Z"
+        },
+        {
+          "name": "Decode keystore",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-08-05T06:31:45Z",
+          "completed_at": "2026-08-05T06:31:45Z"
+        },
+        {
+          "name": "Verify keystore",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2026-08-05T06:31:45Z",
+          "completed_at": "2026-08-05T06:31:45Z"
+        },
+        {
+          "name": "Generate keystore.properties",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-08-05T06:31:45Z",
+          "completed_at": "2026-08-05T06:31:45Z"
+        },
+        {
+          "name": "Ensure Gradle Wrapper",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-08-05T06:31:45Z",
+          "completed_at": "2026-08-05T06:31:45Z"
+        },
+        {
+          "name": "Build release APK",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-08-05T06:31:45Z",
+          "completed_at": "2026-08-05T06:31:45Z"
+        },
+        {
+          "name": "Upload APK artifact",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2026-08-05T06:31:45Z",
+          "completed_at": "2026-08-05T06:31:45Z"
+        },
+        {
+          "name": "Create GitHub Release with APK",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-08-05T06:31:45Z",
+          "completed_at": "2026-08-05T06:31:45Z"
+        },
+        {
+          "name": "Post Set up JDK 17",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-08-05T06:31:45Z",
+          "completed_at": "2026-08-05T06:31:46Z"
+        },
+        {
+          "name": "Post Checkout source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-08-05T06:31:46Z",
+          "completed_at": "2026-08-05T06:31:46Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-08-05T06:31:46Z",
+          "completed_at": "2026-08-05T06:31:46Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/swbljly/pano-viewer/check-runs/92227129424",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000000006,
+      "runner_name": "GitHub Actions 1000000006",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+﻿2026-08-05T08:49:24.1375272Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-08-05T08:49:24.1383768Z ##[group]Run actions/checkout@v4
+2026-08-05T08:49:24.1384273Z with:
+2026-08-05T08:49:24.1384495Z   repository: swbljly/pano-viewer
+2026-08-05T08:49:24.1387083Z   token: ***
+2026-08-05T08:49:24.1387304Z   ssh-strict: true
+2026-08-05T08:49:24.1387512Z   ssh-user: git
+2026-08-05T08:49:24.1387729Z   persist-credentials: true
+2026-08-05T08:49:24.1387986Z   clean: true
+2026-08-05T08:49:24.1388197Z   sparse-checkout-cone-mode: true
+2026-08-05T08:49:24.1388451Z   fetch-depth: 1
+2026-08-05T08:49:24.1388645Z   fetch-tags: false
+2026-08-05T08:49:24.1388850Z   show-progress: true
+2026-08-05T08:49:24.1389055Z   lfs: false
+2026-08-05T08:49:24.1389243Z   submodules: false
+2026-08-05T08:49:24.1389499Z   set-safe-directory: true
+2026-08-05T08:49:24.1389739Z   allow-unsafe-pr-checkout: false
+2026-08-05T08:49:24.1390220Z ##[endgroup]
+2026-08-05T08:49:24.2424446Z Syncing repository: swbljly/pano-viewer
+2026-08-05T08:49:24.2426799Z ##[group]Getting Git version info
+2026-08-05T08:49:24.2427575Z Working directory is '/home/runner/work/pano-viewer/pano-viewer'
+2026-08-05T08:49:24.2428897Z [command]/usr/bin/git version
+2026-08-05T08:49:24.2497362Z git version 2.54.0
+2026-08-05T08:49:24.2523667Z ##[endgroup]
+2026-08-05T08:49:24.2541057Z Temporarily overriding HOME='/home/runner/work/_temp/0ef274a2-fc9c-4792-8b60-d254e2737d49' before making global git config changes
+2026-08-05T08:49:24.2543090Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-05T08:49:24.2548701Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/pano-viewer/pano-viewer
+2026-08-05T08:49:24.2604318Z Deleting the contents of '/home/runner/work/pano-viewer/pano-viewer'
+2026-08-05T08:49:24.2609380Z ##[group]Initializing the repository
+2026-08-05T08:49:24.2615037Z [command]/usr/bin/git init /home/runner/work/pano-viewer/pano-viewer
+2026-08-05T08:49:24.2726445Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-08-05T08:49:24.2727584Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-08-05T08:49:24.2728440Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-08-05T08:49:24.2729158Z hint: call:
+2026-08-05T08:49:24.2729503Z hint:
+2026-08-05T08:49:24.2730014Z hint: 	git config --global init.defaultBranch <name>
+2026-08-05T08:49:24.2730627Z hint:
+2026-08-05T08:49:24.2731163Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-08-05T08:49:24.2732149Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-08-05T08:49:24.2732862Z hint:
+2026-08-05T08:49:24.2733498Z hint: 	git branch -m <name>
+2026-08-05T08:49:24.2734014Z hint:
+2026-08-05T08:49:24.2734711Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-08-05T08:49:24.2735847Z Initialized empty Git repository in /home/runner/work/pano-viewer/pano-viewer/.git/
+2026-08-05T08:49:24.2746442Z [command]/usr/bin/git remote add origin https://github.com/swbljly/pano-viewer
+2026-08-05T08:49:24.2794435Z ##[endgroup]
+2026-08-05T08:49:24.2795233Z ##[group]Disabling automatic garbage collection
+2026-08-05T08:49:24.2798315Z [command]/usr/bin/git config --local gc.auto 0
+2026-08-05T08:49:24.2848389Z ##[endgroup]
+2026-08-05T08:49:24.2849068Z ##[group]Setting up auth
+2026-08-05T08:49:24.2849734Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-05T08:49:24.2895179Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-05T08:49:24.3305674Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-05T08:49:24.3360148Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-05T08:49:24.3598864Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-05T08:49:24.3638212Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-05T08:49:24.3871485Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-08-05T08:49:24.3912957Z ##[endgroup]
+2026-08-05T08:49:24.3914377Z ##[group]Fetching the repository
+2026-08-05T08:49:24.3924021Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9e5e020d0dcd8b3c1ae10038491420d4a2f52216:refs/tags/v1.0.0
+2026-08-05T08:49:24.7580039Z From https://github.com/swbljly/pano-viewer
+2026-08-05T08:49:24.7580639Z  * [new ref]         9e5e020d0dcd8b3c1ae10038491420d4a2f52216 -> v1.0.0
+2026-08-05T08:49:24.7627583Z ##[endgroup]
+2026-08-05T08:49:24.7630787Z ##[group]Determining the checkout info
+2026-08-05T08:49:24.7631295Z ##[endgroup]
+2026-08-05T08:49:24.7640408Z [command]/usr/bin/git sparse-checkout disable
+2026-08-05T08:49:24.7700886Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-08-05T08:49:24.7756275Z ##[group]Checking out the ref
+2026-08-05T08:49:24.7757203Z [command]/usr/bin/git checkout --progress --force refs/tags/v1.0.0
+2026-08-05T08:49:24.7897630Z Note: switching to 'refs/tags/v1.0.0'.
+2026-08-05T08:49:24.7898215Z 
+2026-08-05T08:49:24.7898469Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-08-05T08:49:24.7899133Z changes and commit them, and you can discard any commits you make in this
+2026-08-05T08:49:24.7899737Z state without impacting any branches by switching back to a branch.
+2026-08-05T08:49:24.7900160Z 
+2026-08-05T08:49:24.7900784Z If you want to create a new branch to retain commits you create, you may
+2026-08-05T08:49:24.7901566Z do so (now or later) by using -c with the switch command. Example:
+2026-08-05T08:49:24.7902042Z 
+2026-08-05T08:49:24.7902255Z   git switch -c <new-branch-name>
+2026-08-05T08:49:24.7902590Z 
+2026-08-05T08:49:24.7902787Z Or undo this operation with:
+2026-08-05T08:49:24.7903412Z 
+2026-08-05T08:49:24.7903593Z   git switch -
+2026-08-05T08:49:24.7903903Z 
+2026-08-05T08:49:24.7904323Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-08-05T08:49:24.7904938Z 
+2026-08-05T08:49:24.7905536Z HEAD is now at 9e5e020 CI: strip whitespace on keystore decode and add keytool verify step to catch corrupted base64
+2026-08-05T08:49:24.7907738Z ##[endgroup]
+2026-08-05T08:49:24.7956969Z [command]/usr/bin/git log -1 --format=%H
+2026-08-05T08:49:24.7986218Z 9e5e020d0dcd8b3c1ae10038491420d4a2f52216

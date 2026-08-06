@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 完全离线：不申请 INTERNET 权限，查看器资源均来自 app 内置 assets -->
+    <!-- 链接查看 / 收藏复看需要从网络下载图片，必须 INTERNET -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- usesCleartextTraffic=true 兼容 http 直链（file:// 查看器 + 混合内容已 ALLOW） -->
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
@@ -9,9 +12,11 @@
         android:theme="@style/Theme.PanoViewer"
         android:usesCleartextTraffic="true">
 
+        <!-- singleTask：收藏页「打开」时回带 extra 触发 onNewIntent 复看 -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:launchMode="singleTask"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="fullSensor">
 
@@ -29,6 +34,13 @@
                 <data android:scheme="file" android:mimeType="image/*" />
             </intent-filter>
         </activity>
+
+        <!-- 链接收藏页 -->
+        <activity
+            android:name=".ui.FavoritesActivity"
+            android:exported="false"
+            android:label="@string/favorites_title"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
     </application>
 
 </manifest>

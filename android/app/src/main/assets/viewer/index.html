@@ -25,6 +25,8 @@
   <!-- 顶部工具栏 -->
   <div id="toolbar" class="toolbar">
     <button id="btn-open" class="tool-btn" title="打开本地全景图">📂 打开图片</button>
+    <button id="btn-link" class="tool-btn" title="从链接查看全景图">🔗 链接</button>
+    <button id="btn-fav" class="tool-btn" title="打开收藏">⭐ 收藏</button>
     <button id="btn-autorotate" class="tool-btn" title="自动旋转开关">🔄 自动旋转</button>
     <button id="btn-fullscreen" class="tool-btn" title="全屏切换">⛶ 全屏</button>
     <button id="btn-reset" class="tool-btn" title="复位视角">↺ 复位</button>
@@ -38,5 +40,18 @@
   <script src="three.min.js"></script>
   <!-- 查看器核心逻辑 -->
   <script src="viewer.js"></script>
+  <script>
+    // 工具栏「链接 / 收藏」按钮通过 JS 桥调起原生面板（无桥时静默忽略）
+    (function () {
+      var linkBtn = document.getElementById('btn-link');
+      var favBtn = document.getElementById('btn-fav');
+      if (linkBtn && window.PanoAndroid) {
+        linkBtn.onclick = function () { window.PanoAndroid.openLinkPanel(); };
+      }
+      if (favBtn && window.PanoAndroid) {
+        favBtn.onclick = function () { window.PanoAndroid.openFavorites(); };
+      }
+    })();
+  </script>
 </body>
 </html>

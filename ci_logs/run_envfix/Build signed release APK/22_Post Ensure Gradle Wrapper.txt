@@ -1,0 +1,14 @@
+﻿2026-08-05T09:04:36.6057598Z Post job cleanup.
+2026-08-05T09:04:36.6061596Z ##[start-action display=Setup Gradle;id=__f0f88b90-ed6d-42e7-8f71-448dea845efe.setup-gradle]
+2026-08-05T09:04:36.6122115Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-08-05T09:04:36.6123362Z Post job cleanup.
+2026-08-05T09:04:36.7965323Z ##[warning]This job uses deprecated functionality from the 'gradle/gradle-build-action' action. Consult the Job Summary for more details.
+2026-08-05T09:04:36.7969448Z DEPRECATION: The action `gradle/gradle-build-action` has been replaced by `gradle/actions/setup-gradle`. See https://github.com/gradle/actions/blob/main/docs/deprecation-upgrade-guide.md#the-action-gradlegradle-build-action-has-been-replaced-by-gradleactionssetup-gradle
+2026-08-05T09:04:36.7973941Z DEPRECATION: Using the action to execute Gradle via the `arguments` parameter is deprecated. See https://github.com/gradle/actions/blob/main/docs/deprecation-upgrade-guide.md#using-the-action-to-execute-gradle-via-the-arguments-parameter-is-deprecated
+2026-08-05T09:04:36.7976133Z In post-action step
+2026-08-05T09:04:36.7976953Z Cache is read-only: will not save state for use in subsequent builds.
+2026-08-05T09:04:36.7978979Z (node:3167) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-08-05T09:04:36.7981138Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-05T09:04:36.7986562Z Generating Job Summary
+2026-08-05T09:04:36.8009118Z Completed post-action step
+2026-08-05T09:04:36.8164131Z ##[end-action id=__f0f88b90-ed6d-42e7-8f71-448dea845efe.setup-gradle;outcome=success;conclusion=success;duration_ms=210]
