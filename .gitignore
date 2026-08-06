@@ -16,3 +16,7 @@ Thumbs.db
 *.keystore
 keystore.properties
 ci_logs/
+
+# ===== QA 本地验证产物（不应入库） =====
+android/qa_libs/
+android/out/

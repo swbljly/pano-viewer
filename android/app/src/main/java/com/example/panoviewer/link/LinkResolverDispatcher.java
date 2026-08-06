@@ -43,6 +43,10 @@ public class LinkResolverDispatcher {
         if (u.contains("pan.quark.cn") || u.contains("quark.cn/s/")) {
             return LinkType.QUARK_SHARE;
         }
+        // PRD 支持的三类链接（夸克/网页/直链）均为 http(s)；非 http(s) 一律判 UNKNOWN。
+        if (!u.startsWith("http://") && !u.startsWith("https://")) {
+            return LinkType.UNKNOWN;
+        }
         if (LinkUtils.isImageUrl(u)) {
             return LinkType.DIRECT_IMAGE;
         }

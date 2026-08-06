@@ -35,10 +35,15 @@ public final class LinkUtils {
     }
 
     /**
-     * 判断 URL 路径是否以图片扩展名结尾（忽略大小写、忽略查询串）。
+     * 判断 URL 是否为直链图片：必须是 http(s) 协议，且路径以图片扩展名结尾
+     * （忽略大小写、忽略查询串）。非 http(s) 一律返回 false，避免 ftp 等协议被误判。
      */
     public static boolean isImageUrl(@NonNull String url) {
-        String path = stripQuery(url.toLowerCase());
+        String lower = url.toLowerCase();
+        if (!lower.startsWith("http://") && !lower.startsWith("https://")) {
+            return false;
+        }
+        String path = stripQuery(lower);
         for (String ext : IMAGE_EXTENSIONS) {
             if (path.endsWith("." + ext)) {
                 return true;
